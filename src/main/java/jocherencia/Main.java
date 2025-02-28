@@ -24,9 +24,20 @@ public class Main {
                 case 2 -> {
                     registrarPersonatge();
                 }
+                case 3 -> {
+                    crearObjecte();
+                }
             }
         }while (entrada != 11);
 
+
+    }
+
+    public static void crearObjecte(){
+        String nom;
+        String estudi;
+        String tipus;
+        boolean preu;
 
     }
 
@@ -50,8 +61,21 @@ public class Main {
         String preferencia;
         if (!personatges.contains((Personatge) new Persona(nomper = AskData.askString("< Indica el nom del Personatge >: ")))) { //Preguntar Maria
             if (estudis.contains(estudi = AskData.askString("< Indica el estudi del Personatge >: "))){
-                //Fin 1
+                if (llocs.contains(lloc = AskData.askString("< Indica el lloc del Persontage >: "))){
+                    if(obj_acceptat.contains(preferencia = AskData.askString("< Indica el objecte preferit del teu personatge >: "))){
+                        personatges.add(new Personatge(nomper, lloc,estudi,preferencia));
+                    }else{
+                        System.out.println("< ERROR: Preferència incorrecta >");
+                    }
+
+                }else{
+                    System.out.println("< ERROR: Lloc incorrecte >");
                 }
+            }else{
+                System.out.println("< ERROR: Estudi incorrecte >");
+            }
+        }else{
+            System.out.println("< ERROR: Ja existeix un personatge amb aquest nom >");
         }
     }
 }
